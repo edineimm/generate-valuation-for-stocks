@@ -14,7 +14,8 @@ def get_html_statusinvest(ticker, max_tentativas=3):
     driver = webdriver.Chrome()
     wait = WebDriverWait(driver, 20)
 
-    driver.get(f"https://statusinvest.com.br/acoes/{ticker}")
+    # driver.get(f"https://statusinvest.com.br/acoes/{ticker}")
+    driver.get(f"https://statusinvest.com.br/acoes/eua/{ticker}")
     print("Página StatusInvest carregada.")
 
     for tentativa in range(1, max_tentativas + 1):

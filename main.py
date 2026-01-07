@@ -10,9 +10,10 @@ import os
 
 logging.basicConfig(level=logging.INFO)
 
-Folder = "IBOV"
+Folder = "SP500"
 PATH= f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\B3\\{Folder}\\"
-PATH_File = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\indices\\{Folder.lower()} b3.csv"
+# PATH_File = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\indices\\{Folder.lower()} b3.csv"
+PATH_File = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\indices\\{Folder.lower()}.csv"
 results = []
 
 # obtem a lista de tickers do idiv
@@ -37,8 +38,8 @@ def obtem_balanco(tickers):
             print(f"Nenhum indicador financeiro encontrado para o ticker {i}. Pulando...")
             continue
         else:
-            url = f"https://www.dadosdemercado.com.br/acoes/{i}/dividendos"
-            indicators = web_scraping.get_dividends(indicators, url)
+            # url = f"https://www.dadosdemercado.com.br/acoes/{i}/dividendos"
+            # indicators = web_scraping.get_dividends(indicators, url)
 
             indicators.to_csv(f'{PATH}{i}.csv', sep=';', encoding='utf-8')
         
@@ -48,7 +49,7 @@ def obtem_balanco(tickers):
         
         tempo = time.perf_counter() - inicio
         logging.info("Ticker %s executado em %.3fs", i, tempo)
-
+        break
     
 def valuation(tickers):
     for i in tickers:
@@ -126,7 +127,67 @@ def get_setor(tickers):
     )
 
     return df
+
+def preencher_dividendos(tickers) -> dict:
+    
+    arredondar = 2
+    resultados = {}
+
+    def to_numeric(x):
+        if isinstance(x, str):
+            x = x.replace('%', '').replace(',', '.').strip()
+        return pd.to_numeric(x, errors='coerce')
+
+    for ticker in tickers:
+        try:
+            df = pd.read_csv(
+                f'{PATH}{ticker}.csv',
+                sep=';',
+                encoding='utf-8',
+                index_col=0
+            )
+            
+            # Converter apenas P/L e LPA (D.Y NÃO será alterado)
+            for row in ['P/L', 'LPA']:
+                if row not in df.index:
+                    raise ValueError(f"Linha obrigatória ausente: {row}")
+                df.loc[row] = df.loc[row].apply(to_numeric)
+
+            # Criar D.Y numérico apenas para cálculo (sem alterar df)
+            if 'D.Y' not in df.index:
+                raise ValueError("Linha obrigatória ausente: D.Y")
+
+            dy_calc = df.loc['D.Y'].apply(to_numeric) / 100
+
+            # Calcular Div
+            df.loc['Div'] = df.loc['P/L'] * df.loc['LPA'] * dy_calc
+
+            if arredondar is not None:
+                df.loc['Div'] = pd.to_numeric(
+                    df.loc['Div'], errors='coerce'
+                ).round(arredondar)
+
+            # Salvar mantendo índice
+            df.to_csv(
+                f'{PATH}{ticker}.csv',
+                sep=';',
+                encoding='utf-8',
+                index=True
+            )
+            
+            # print(df)
+
+            resultados[ticker] = df
+
+        except Exception as e:
+            print(f'❌ Erro no ticker {ticker}: {e}')
+            
+        break
+
+    return resultados
+
 # obtem_balanco(tickers)
-valuation(tickers)
+preencher_dividendos(tickers)
+# valuation(tickers)
 # get_setor(tickers)
-graficos()
+# graficos()
