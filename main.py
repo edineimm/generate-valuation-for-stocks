@@ -57,8 +57,9 @@ def valuation(tickers):
         # print(f"=== VALUATION TICKER: {i} ===")
         
         # calcula o valor justo e o desconto
-        valuation = valuation_unit.return_ticket(PATH, i)
-        # valuation = valuation_for_roe.return_ticket(PATH, i)
+        # valuation = valuation_unit.return_ticket(PATH, i)
+        valuation = valuation_for_roe.return_ticket(PATH, i)
+        
         results.append(valuation)
         
         tempo = time.perf_counter() - inicio
@@ -66,11 +67,12 @@ def valuation(tickers):
             
     # print("\n=== RESULTADOS CONSOLIDADOS ===")
     df = pd.DataFrame(results)
+    
     # print(df)
-    df.to_csv(f'{PATH}resultado_idiv.csv', sep=';', encoding='utf-8')
+    df.to_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8')
     
 def graficos():
-    df = pd.read_csv(f'{PATH}resultado_idiv.csv', sep=';', encoding='utf-8')
+    df = pd.read_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8', index_col=0)
     df = df[(df["desconto"] < - 30) & (df["desconto"] > -50)].sort_values(by='desconto', ascending=True)
     # print(df[["ticket", "valor_intrinseco", "desconto"]])
     tickets = []
@@ -97,10 +99,12 @@ def graficos():
        'preco_fim', 'variacao_percentual',
        'Subsetor de Atuação', 'Segmento de Atuação']]
     
-    df = df.sort_values(
-    by=["Segmento de Atuação", "desconto"],
-    ascending=[True, True]
-    )
+    # df = df.sort_values(
+    # by=["Segmento de Atuação", "desconto"],
+    # ascending=[True, True]
+    # )
+    
+    df =  df.sort_values(by='desconto', ascending=True)
     
     print(df)
 

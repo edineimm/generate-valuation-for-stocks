@@ -21,17 +21,31 @@ def valuation_via_roe_cagr3_df(
     arquivo = file_path
     df = pd.read_csv(arquivo, sep=';', encoding='utf-8', index_col=0)
     df = df.drop(columns=["2025"], errors="ignore")
+    df = df.drop(columns=["2024"], errors="ignore")
+
     # -------------------------------------------------
     # 1. LIMPEZA DOS DADOS
     # -------------------------------------------------
     df_clean = df.copy()
 
     def to_float(x):
-        if pd.isna(x) or x in ["-%", "-", "%"]:
+        if pd.isna(x) or x in ["-%", "-", "%", ""]:
             return np.nan
+
         if isinstance(x, str):
-            x = x.replace("%", "").replace(",", ".")
-        return float(x)
+            x = x.strip()
+
+            # remove separador de milhar
+            x = x.replace(".", "").replace(",", ".")
+
+            # remove %
+            x = x.replace("%", "")
+
+        try:
+            return float(x)
+        except ValueError:
+            return np.nan
+
 
     df_clean = df_clean.apply(lambda col: col.map(to_float))
 
@@ -41,13 +55,24 @@ def valuation_via_roe_cagr3_df(
     # -------------------------------------------------
     def cagr_3_anos(series: pd.Series) -> float:
         s = series.dropna().iloc[:4]  # atual + 3 anos
+
         if len(s) < 4:
             return np.nan
+
         v_final = s.iloc[0]
         v_inicial = s.iloc[3]
-        if v_inicial <= 0:
+
+        # Proteções matemáticas e financeiras
+        if v_inicial <= 0 or v_final <= 0:
             return np.nan
-        return (v_final / v_inicial) ** (1 / 3) - 1
+
+        razao = v_final / v_inicial
+
+        if razao <= 0:
+            return np.nan
+
+        return razao ** (1 / 3) - 1
+
 
     # -------------------------------------------------
     # 3. LPA PROJETADO (CAGR 3 ANOS)
@@ -149,8 +174,8 @@ def cotation(ticket, ano):
     ticker = yf.Ticker(f"{ticket}.SA")  # ação brasileira (B3)
     
     dados = ticker.history(
-        start=f"{ano-1}-12-29",
-        end=f"{ano}-01-10",
+        start=f"{ano-1}-12-20",
+        end=f"{ano}-01-30",
         interval="1d"
     )
 
@@ -160,11 +185,11 @@ def cotation(ticket, ano):
     return ultima_cotacao.round(2)
 
 def return_ticket(file, ticket):
-    preco_inicio = cotation(ticket, 2025) #2026
-    preco_fim = cotation(ticket, 2026) #2027
+    preco_inicio = cotation(ticket, 2024) #2026
+    preco_fim = cotation(ticket, 2025) #2027
     valor_intrinceco = valuation_via_roe_cagr3_df(
         file_path=f"{file}{ticket}.csv",
-        ke=0.15,
+        ke=0.20,
         g_perpetuidade=0.05,
         anos_crescimento=10
     ).iloc[0,0]
