@@ -9,6 +9,15 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
 
+def elemento_existe(driver, xpath, timeout=5):
+    try:
+        WebDriverWait(driver, timeout).until(
+            EC.presence_of_element_located((By.XPATH, xpath))
+        )
+        return True
+    except TimeoutException:
+        return False
+
 def get_html_statusinvest(ticker, max_tentativas=3):
 
     driver = webdriver.Chrome()
@@ -20,7 +29,20 @@ def get_html_statusinvest(ticker, max_tentativas=3):
 
     for tentativa in range(1, max_tentativas + 1):
         try:
-            print(f"Tentativa {tentativa} de clicar no HISTÓRICO")
+            print(f"Tentativa {tentativa} de clicar no HISTÓRICO")          
+                
+            if elemento_existe(driver, "//button[@title='Histórico do ativo']"):
+                print("Fluxo com histórico")
+            else:
+                print("Fluxo alternativo")
+                driver.get(f"https://statusinvest.com.br/reits/{ticker}")
+                
+                if elemento_existe(driver, "//button[@title='Histórico do ativo']"):
+                    print("Fluxo alternativo com histórico")
+                else:
+                    print("Histórico não encontrado em nenhum fluxo.")
+                    driver.quit()
+                    return None
 
             btn = wait.until(
                 EC.element_to_be_clickable((By.XPATH, "//button[@title='Histórico do ativo']"))

@@ -3,6 +3,7 @@ import web_scraping
 import open_website
 import valuation_unit
 import valuation_for_roe
+import analise_tecnica_lista
 import pandas as pd
 import time
 import logging
@@ -18,6 +19,7 @@ results = []
 
 # obtem a lista de tickers do idiv
 tickers = idiv.get_ticker(PATH_File)
+tickers = tickers[:300]
 
 def obtem_balanco(tickers):
     for i in tickers:
@@ -49,7 +51,6 @@ def obtem_balanco(tickers):
         
         tempo = time.perf_counter() - inicio
         logging.info("Ticker %s executado em %.3fs", i, tempo)
-        break
     
 def valuation(tickers):
     for i in tickers:
@@ -74,40 +75,46 @@ def valuation(tickers):
     
 def graficos():
     df = pd.read_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8', index_col=0)
-    df = df[(df["desconto"] < - 30) & (df["desconto"] > -50)].sort_values(by='desconto', ascending=True)
+    df = df[(df["desconto"] < - 25) & (df["desconto"] > -50)].sort_values(by='desconto', ascending=True)
     # print(df[["ticket", "valor_intrinseco", "desconto"]])
     tickets = []
     tickets = df["ticket"].tolist()
     # print(tickets)
     # valuation(tickers)
-
-    df_setores = pd.read_csv(
-        f'{PATH}setores.csv',
-        sep=';',
-        encoding='utf-8')
     
-    df["ticket"] = df["ticket"].str.upper()
-    df_setores["Ticket"] = df_setores["Ticket"].str.upper()
-    
-    df_final = df.merge(
-    df_setores,
-    left_on="ticket",
-    right_on="Ticket",
-    how="left"
-    )
-    
-    df = df_final[['ticket', 'valor_intrinseco', 'desconto', 'preco_inicio',
-       'preco_fim', 'variacao_percentual',
-       'Subsetor de Atuação', 'Segmento de Atuação']]
+    # verifica se o arquivo setores.csv existe
+    if os.path.exists(f'{PATH}setores.csv'):
+        df_setores = pd.read_csv(
+            f'{PATH}setores.csv',
+            sep=';',
+            encoding='utf-8')
+        
+        df["ticket"] = df["ticket"].str.upper()
+        df_setores["Ticket"] = df_setores["Ticket"].str.upper()
+        
+        df_final = df.merge(
+        df_setores,
+        left_on="ticket",
+        right_on="Ticket",
+        how="left"
+        )
+        
+        df = df_final[['ticket', 'valor_intrinseco', 'desconto', 'preco_inicio',
+        'preco_fim', 'variacao_percentual',
+        'Subsetor de Atuação', 'Segmento de Atuação']]
+        
+    else:
+        df_final = df.copy()
+        df = df.sort_values(by='desconto', ascending=True)
     
     # df = df.sort_values(
     # by=["Segmento de Atuação", "desconto"],
     # ascending=[True, True]
     # )
-    
-    df =  df.sort_values(by='desconto', ascending=True)
-    
+        
     print(df)
+    
+    return df["ticket"].tolist()
 
 def get_setor(tickers):
     results = []
@@ -175,19 +182,19 @@ def preencher_dividendos(tickers) -> dict:
                 index=True
             )
             
-            # print(df)
-
             resultados[ticker] = df
 
         except Exception as e:
             print(f'❌ Erro no ticker {ticker}: {e}')
             
-        break
-
     return resultados
 
-# obtem_balanco(tickers)
-preencher_dividendos(tickers)
+
+obtem_balanco(tickers)
+# preencher_dividendos(tickers)
 # valuation(tickers)
 # get_setor(tickers)
-# graficos()
+# list = graficos()
+# print(list)
+
+# print(analise_tecnica_lista.backtest_buy_hold_timing(list, plot=False))

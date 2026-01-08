@@ -21,7 +21,7 @@ def valuation_via_roe_cagr3_df(
     arquivo = file_path
     df = pd.read_csv(arquivo, sep=';', encoding='utf-8', index_col=0)
     df = df.drop(columns=["2025"], errors="ignore")
-    df = df.drop(columns=["2024"], errors="ignore")
+    # df = df.drop(columns=["2024"], errors="ignore")
 
     # -------------------------------------------------
     # 1. LIMPEZA DOS DADOS
@@ -171,10 +171,11 @@ def valuation_via_roe_cagr3_df(
 
 
 def cotation(ticket, ano):
-    ticker = yf.Ticker(f"{ticket}.SA")  # ação brasileira (B3)
+    # ticker = yf.Ticker(f"{ticket}.SA")  # ação brasileira (B3)
+    ticker = yf.Ticker(f"{ticket}")  # ação sp500
     
     dados = ticker.history(
-        start=f"{ano-1}-12-20",
+        start=f"{ano-1}-12-15",
         end=f"{ano}-01-30",
         interval="1d"
     )
@@ -185,11 +186,11 @@ def cotation(ticket, ano):
     return ultima_cotacao.round(2)
 
 def return_ticket(file, ticket):
-    preco_inicio = cotation(ticket, 2024) #2026
-    preco_fim = cotation(ticket, 2025) #2027
+    preco_inicio = cotation(ticket, 2025) #2026
+    preco_fim = cotation(ticket, 2026) #2027
     valor_intrinceco = valuation_via_roe_cagr3_df(
         file_path=f"{file}{ticket}.csv",
-        ke=0.20,
+        ke=0.41, #0.20
         g_perpetuidade=0.05,
         anos_crescimento=10
     ).iloc[0,0]
