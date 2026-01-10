@@ -19,8 +19,8 @@ results = []
 
 # obtem a lista de tickers do idiv
 tickers = idiv.get_ticker(PATH_File)
-tickers = tickers[:300]
-
+tickers = tickers[:50]
+x = []
 def obtem_balanco(tickers):
     for i in tickers:
         inicio = time.perf_counter()
@@ -38,6 +38,7 @@ def obtem_balanco(tickers):
         
         if indicators is None or indicators.empty:
             print(f"Nenhum indicador financeiro encontrado para o ticker {i}. Pulando...")
+            x.append(i)
             continue
         else:
             # url = f"https://www.dadosdemercado.com.br/acoes/{i}/dividendos"
@@ -60,7 +61,7 @@ def valuation(tickers):
         
         # calcula o valor justo e o desconto
         # valuation = valuation_unit.return_ticket(PATH, i)
-        valuation = valuation_for_roe.return_ticket(PATH, i)
+        valuation = valuation_for_roe.return_ticket(PATH, i, ANO, Ke)
         
         results.append(valuation)
         
@@ -73,10 +74,30 @@ def valuation(tickers):
     # print(df)
     df.to_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8')
     
-def graficos():
+def graficos(filter=False):
     df = pd.read_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8', index_col=0)
-    df = df[(df["desconto"] < - 25) & (df["desconto"] > -50)].sort_values(by='desconto', ascending=True)
+    
+    if filter == True:
+        # df = df[(df["desconto"] < - 25) & (df["desconto"] > -50)].sort_values(by='desconto', ascending=True)
+        df = df[(df["desconto"] < 10) & (df["desconto"] > -80)].sort_values(by='desconto', ascending=True)
     # print(df[["ticket", "valor_intrinseco", "desconto"]])
+    
+    
+    df_sorted = df.sort_values("desconto")
+
+    # 1 ativo com desconto > 0 (menor positivo)
+    positivo = df_sorted[df_sorted["desconto"] > 0].head(2)
+
+    # 2 ativos com desconto < 0 (mais próximos de zero)
+    negativos = (
+        df_sorted[df_sorted["desconto"] < 0]
+        .sort_values("desconto", ascending=False)
+        .head(2)
+    )
+
+    # resultado final
+    df = pd.concat([positivo, negativos])
+    
     tickets = []
     tickets = df["ticket"].tolist()
     # print(tickets)
@@ -190,11 +211,21 @@ def preencher_dividendos(tickers) -> dict:
     return resultados
 
 
-obtem_balanco(tickers)
-# preencher_dividendos(tickers)
-# valuation(tickers)
-# get_setor(tickers)
-# list = graficos()
-# print(list)
+ANO = 2026
+Ke = 0.42
 
-# print(analise_tecnica_lista.backtest_buy_hold_timing(list, plot=False))
+# obtem_balanco(tickers)
+
+# preencher_dividendos(tickers)
+valuation(tickers)
+# get_setor(tickers)
+list = graficos(False)
+print(list)
+
+# list.append("^GSPC")
+
+
+# analise_tec = analise_tecnica_lista.backtest_buy_hold_timing(list, 100_000, ANO, plot=False)
+# print(analise_tec)
+
+# print(f"Retorno medio {analise_tec.iloc[:-1]['Retorno_BuyHold_%'].mean()}")

@@ -1,0 +1,1 @@
+['EXE', 'VLTO', 'CPAY', 'Q', 'TKO', 'BALL', 'EG', 'PSKY', 'BF.B', 'RVTY', 'DAY']

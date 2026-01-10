@@ -23,12 +23,14 @@ def rsi(series, period=14):
 def backtest_buy_hold_timing(
     tickers,
     capital_inicial=100_000,
-    start="2022-12-01",
-    end="2026-01-01",
-    periodo_teste=("2025-01-20", "2025-12-31"),
+    ano: int = 2025,
     plot=False
 ):
     resultados = []
+
+    start=f"{ano-4}-01-01"
+    end="2026-01-01"
+    periodo_teste=(f"{ano}-01-01", f"{ano}-12-31")
 
     for ticker in tickers:
         try:
@@ -136,25 +138,25 @@ def backtest_buy_hold_timing(
             # =========================
             # Gráfico (opcional)
             # =========================
-            # if plot and not df_test.empty:
-            #     plt.figure(figsize=(14,7))
-            #     plt.plot(df_test.index, df_test["Close"], label="Preço", linewidth=2)
-            #     plt.plot(df_test.index, df_test["MM50"], label="MM50", linestyle="--")
-            #     plt.plot(df_test.index, df_test["MM200"], label="MM200", linestyle="--")
-            #     plt.plot(df_test.index, df_test["Suporte"], label="Suporte", linestyle=":")
+            if plot and not df_test.empty:
+                plt.figure(figsize=(14,7))
+                plt.plot(df_test.index, df_test["Close"], label="Preço", linewidth=2)
+                plt.plot(df_test.index, df_test["MM50"], label="MM50", linestyle="--")
+                plt.plot(df_test.index, df_test["MM200"], label="MM200", linestyle="--")
+                plt.plot(df_test.index, df_test["Suporte"], label="Suporte", linestyle=":")
 
-            #     if data_entrada:
-            #         plt.scatter(data_entrada, preco_entrada, marker="^", s=120, label="Compra")
+                if data_entrada:
+                    plt.scatter(data_entrada, preco_entrada, marker="^", s=120, label="Compra")
 
-            #     if data_venda:
-            #         plt.scatter(data_venda, preco_venda, marker="v", s=120, label="Venda +80%")
+                if data_venda:
+                    plt.scatter(data_venda, preco_venda, marker="v", s=120, label="Venda +80%")
 
-            #     plt.title(f"{ticker} – Buy & Hold com Timing Técnico – 2025")
-            #     plt.legend()
-            #     plt.grid(True)
-            #     plt.tight_layout()
-            #     plt.show()
-            #     plt.close()
+                plt.title(f"{ticker} – Buy & Hold com Timing Técnico – 2025")
+                plt.legend()
+                plt.grid(True)
+                plt.tight_layout()
+                plt.show()
+                plt.close()
 
         except Exception as e:
             print(f"Erro no ticker {ticker}: {e}")

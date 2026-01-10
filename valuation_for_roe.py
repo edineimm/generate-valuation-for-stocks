@@ -6,7 +6,8 @@ def valuation_via_roe_cagr3_df(
     file_path: str,
     ke: float = 0.15,
     g_perpetuidade: float = 0.05,
-    anos_crescimento: int = 10
+    anos_crescimento: int = 10,
+    ano: int = 2025
 ) -> dict:
     """
     Valuation via ROE usando CAGR (3 anos) de:
@@ -20,9 +21,16 @@ def valuation_via_roe_cagr3_df(
     
     arquivo = file_path
     df = pd.read_csv(arquivo, sep=';', encoding='utf-8', index_col=0)
-    df = df.drop(columns=["2025"], errors="ignore")
-    # df = df.drop(columns=["2024"], errors="ignore")
 
+    if ano == 2025:
+        df = df.drop(columns=["2025"], errors="ignore")
+    elif ano == 2024:
+        df = df.drop(columns=["2025"], errors="ignore")
+        df = df.drop(columns=["2024"], errors="ignore")
+    elif ano == 2023:
+        df = df.drop(columns=["2025"], errors="ignore")
+        df = df.drop(columns=["2024"], errors="ignore")
+        df = df.drop(columns=["2023"], errors="ignore")
     # -------------------------------------------------
     # 1. LIMPEZA DOS DADOS
     # -------------------------------------------------
@@ -179,20 +187,23 @@ def cotation(ticket, ano):
         end=f"{ano}-01-30",
         interval="1d"
     )
-
+    
     # dados = ticker.history(period="1d")
-
     ultima_cotacao = dados['Close'].iloc[0]
     return ultima_cotacao.round(2)
 
-def return_ticket(file, ticket):
-    preco_inicio = cotation(ticket, 2025) #2026
-    preco_fim = cotation(ticket, 2026) #2027
+def return_ticket(file, ticket, ano, ke):
+    preco_inicio = cotation(ticket, ano) #2026
+    if ano == 2026:
+        preco_fim = cotation(ticket, 2026)
+    else:
+        preco_fim = cotation(ticket, ano+1) #2027
     valor_intrinceco = valuation_via_roe_cagr3_df(
         file_path=f"{file}{ticket}.csv",
-        ke=0.41, #0.20
+        ke=ke, #0.42
         g_perpetuidade=0.05,
-        anos_crescimento=10
+        anos_crescimento=10,
+        ano=ano #2025
     ).iloc[0,0]
     
     results = {
