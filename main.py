@@ -211,7 +211,7 @@ def preencher_dividendos(tickers) -> dict:
     return resultados
 
 
-ANO = 2026
+ANO = 2025
 Ke = 0.42
 
 # obtem_balanco(tickers)

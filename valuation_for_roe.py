@@ -162,21 +162,7 @@ def valuation_via_roe_cagr3_df(
         index=["Base"]
     )
     
-    return tabela_valor_intrinseco.round(2) 
-    
-    # return {
-    #     "valor_intrinseco": round(valor_intrinseco, 2),
-    #     "lpa_base": round(lpa_base, 2),
-    #     "roe_base_%": round(roe_base * 100, 2),
-    #     "dy_base_%": round(dy_base * 100, 2),
-    #     "payout_%": round(payout * 100, 2),
-    #     "retencao_%": round(retencao * 100, 2),
-    #     "g_crescimento_%": round(g_crescimento * 100, 2),
-    #     "ke_%": round(ke * 100, 2),
-    #     "g_perpetuidade_%": round(g_perpetuidade * 100, 2),
-    #     "anos_crescimento": anos_crescimento
-    # }
-
+    return tabela_valor_intrinseco.round(2)
 
 def cotation(ticket, ano):
     # ticker = yf.Ticker(f"{ticket}.SA")  # ação brasileira (B3)
@@ -192,12 +178,22 @@ def cotation(ticket, ano):
     ultima_cotacao = dados['Close'].iloc[0]
     return ultima_cotacao.round(2)
 
+def get_history(ticket, start, end):
+    ticker = yf.Ticker(ticket)
+    return ticker.history(start=start, end=end)
+
 def return_ticket(file, ticket, ano, ke):
-    preco_inicio = cotation(ticket, ano) #2026
-    if ano == 2026:
-        preco_fim = cotation(ticket, 2026)
-    else:
-        preco_fim = cotation(ticket, ano+1) #2027
+    hist = get_history(ticket, f"{ano}-01-01", f"{ano}-12-31")
+
+    preco_inicio = hist.iloc[0]["Close"]
+    preco_fim = hist.iloc[-1]["Close"]
+
+    # preco_inicio = cotation(ticket, ano) #2026
+    # if ano == 2026:
+    #     preco_fim = hist.iloc[-1]["Close"]
+
+    # else:
+    #     preco_fim = cotation(ticket, ano+1) #2027
     valor_intrinceco = valuation_via_roe_cagr3_df(
         file_path=f"{file}{ticket}.csv",
         ke=ke, #0.42
@@ -216,11 +212,3 @@ def return_ticket(file, ticket, ano, ke):
     }
     
     return results
-
-# Exemplo de uso
-
-# FILE = "C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\IBOV\\"
-# ticket = "BBDC4"
-
-# result = return_ticket(FILE, ticket)
-# print(result)
