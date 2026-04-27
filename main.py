@@ -8,25 +8,30 @@ import pandas as pd
 import time
 import logging
 import os
+import shutil
+from pathlib import Path
+
 
 logging.basicConfig(level=logging.INFO)
 
 Folder = "SP500"
-PATH= f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\B3\\{Folder}\\"
-# PATH_File = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\indices\\{Folder.lower()} b3.csv"
+PATH = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\B3\\{Folder}\\"
 PATH_File = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\indices\\{Folder.lower()}.csv"
+# PATH_File = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\indices\\{Folder.lower()}.csv"
 results = []
 
 # obtem a lista de tickers do idiv
 tickers = idiv.get_ticker(PATH_File)
-tickers = tickers[:50]
+# tickers = tickers[:2]
 x = []
+
+
 def obtem_balanco(tickers):
     for i in tickers:
         inicio = time.perf_counter()
-        
+
         print(f"\n=== PROCESSANDO TICKER: {i} ===")
-        
+
         if os.path.exists(f'{PATH}{i}.csv'):
             print(f"Arquivo {i}.csv já existe. Pulando...")
             continue
@@ -34,10 +39,11 @@ def obtem_balanco(tickers):
             # obtem os indicadores financeiros
             indicators = web_scraping.obtain_financial_indicators(i)
 
-        # obtem os dividendos e preenche o dataframe  
-        
+        # obtem os dividendos e preenche o dataframe
+
         if indicators is None or indicators.empty:
-            print(f"Nenhum indicador financeiro encontrado para o ticker {i}. Pulando...")
+            print(
+                f"Nenhum indicador financeiro encontrado para o ticker {i}. Pulando...")
             x.append(i)
             continue
         else:
@@ -45,103 +51,110 @@ def obtem_balanco(tickers):
             # indicators = web_scraping.get_dividends(indicators, url)
 
             indicators.to_csv(f'{PATH}{i}.csv', sep=';', encoding='utf-8')
-        
+
         # calcula o valor justo e o desconto
         # valuation = valuation_unit.return_ticket(PATH, i)
         # results.append(valuation)
-        
+
         tempo = time.perf_counter() - inicio
         logging.info("Ticker %s executado em %.3fs", i, tempo)
-    
+
+
 def valuation(tickers):
     for i in tickers:
         inicio = time.perf_counter()
-        
+
         # print(f"=== VALUATION TICKER: {i} ===")
-        
+
         # calcula o valor justo e o desconto
-        # valuation = valuation_unit.return_ticket(PATH, i)
-        valuation = valuation_for_roe.return_ticket(PATH, i, ANO, Ke)
-        
+        valuation = valuation_unit.return_ticket(PATH, i)
+        # valuation = valuation_for_roe.return_ticket(PATH, i, ANO, Ke)
+
         results.append(valuation)
-        
+
         tempo = time.perf_counter() - inicio
         logging.info("Valuation Ticker %s executado em %.3fs", i, tempo)
-            
+
     # print("\n=== RESULTADOS CONSOLIDADOS ===")
     df = pd.DataFrame(results)
-    
+
     # print(df)
     df.to_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8')
-    
+
+
 def graficos(filter=False):
-    df = pd.read_csv(f'{PATH}resultado_{Folder}.csv', sep=';', encoding='utf-8', index_col=0)
-    
+    df = pd.read_csv(f'{PATH}resultado_{Folder}.csv',
+                     sep=';', encoding='utf-8', index_col=0)
+
     if filter == True:
-        # df = df[(df["desconto"] < - 25) & (df["desconto"] > -50)].sort_values(by='desconto', ascending=True)
-        df = df[(df["desconto"] < 10) & (df["desconto"] > -80)].sort_values(by='desconto', ascending=True)
+        df = df[(df["desconto"] < - 25) & (df["desconto"] > -50)
+                ].sort_values(by='desconto', ascending=True)
+        # df = df[(df["desconto"] < 10) & (df["desconto"] > -80)].sort_values(by='desconto', ascending=True)
     # print(df[["ticket", "valor_intrinseco", "desconto"]])
-    
-    
-    df_sorted = df.sort_values("desconto")
 
-    # 1 ativo com desconto > 0 (menor positivo)
-    positivo = df_sorted[df_sorted["desconto"] > 0].head(2)
+    # df_sorted = df.sort_values("desconto")
 
-    # 2 ativos com desconto < 0 (mais próximos de zero)
-    negativos = (
-        df_sorted[df_sorted["desconto"] < 0]
-        .sort_values("desconto", ascending=False)
-        .head(2)
-    )
+    # # 1 ativo com desconto > 0 (menor positivo)
+    # positivo = df_sorted[df_sorted["desconto"] > 0].head(2)
 
-    # resultado final
-    df = pd.concat([positivo, negativos])
-    
-    tickets = []
-    tickets = df["ticket"].tolist()
+    # # 2 ativos com desconto < 0 (mais próximos de zero)
+    # negativos = (
+    #     df_sorted[df_sorted["desconto"] < 0]
+    #     .sort_values("desconto", ascending=False)
+    #     .head(2)
+    # )
+
+    # # resultado final
+    # df = pd.concat([positivo, negativos])
+
+    # tickets = []
+    # tickets = df["ticket"].tolist()
     # print(tickets)
     # valuation(tickers)
-    
+
     # verifica se o arquivo setores.csv existe
     if os.path.exists(f'{PATH}setores.csv'):
         df_setores = pd.read_csv(
             f'{PATH}setores.csv',
             sep=';',
             encoding='utf-8')
-        
+
         df["ticket"] = df["ticket"].str.upper()
         df_setores["Ticket"] = df_setores["Ticket"].str.upper()
-        
+
         df_final = df.merge(
-        df_setores,
-        left_on="ticket",
-        right_on="Ticket",
-        how="left"
+            df_setores,
+            left_on="ticket",
+            right_on="Ticket",
+            how="left"
         )
-        
+
         df = df_final[['ticket', 'valor_intrinseco', 'desconto', 'preco_inicio',
-        'preco_fim', 'variacao_percentual',
-        'Subsetor de Atuação', 'Segmento de Atuação']]
-        
+                       'preco_fim', 'variacao_percentual',
+                       'Subsetor de Atuação', 'Segmento de Atuação']]
+
     else:
         df_final = df.copy()
         df = df.sort_values(by='desconto', ascending=True)
-    
+
     # df = df.sort_values(
     # by=["Segmento de Atuação", "desconto"],
     # ascending=[True, True]
     # )
-        
+
     print(df)
-    
+
     return df["ticket"].tolist()
 
-def get_setor(tickers):
+
+def get_setor(tickers, eua=False):
     results = []
 
     for i in tickers:
-        df_setor = web_scraping.setor(i)  # JÁ É UM DATAFRAME
+        if eua:
+            df_setor = web_scraping.setor_eua(i)  # JÁ É UM DATAFRAME
+        else:
+            df_setor = web_scraping.setor(i)  # JÁ É UM DATAFRAME
         results.append(df_setor)
         print(df_setor)
 
@@ -156,8 +169,9 @@ def get_setor(tickers):
 
     return df
 
+
 def preencher_dividendos(tickers) -> dict:
-    
+
     arredondar = 2
     resultados = {}
 
@@ -174,7 +188,7 @@ def preencher_dividendos(tickers) -> dict:
                 encoding='utf-8',
                 index_col=0
             )
-            
+
             # Converter apenas P/L e LPA (D.Y NÃO será alterado)
             for row in ['P/L', 'LPA']:
                 if row not in df.index:
@@ -202,25 +216,53 @@ def preencher_dividendos(tickers) -> dict:
                 encoding='utf-8',
                 index=True
             )
-            
+
             resultados[ticker] = df
 
         except Exception as e:
             print(f'❌ Erro no ticker {ticker}: {e}')
-            
+
     return resultados
 
 
-ANO = 2025
-Ke = 0.42
+def mover_arquivo(origem: str, destino: str):
+    origem = Path(origem)
+    destino = Path(destino)
+
+    # Cria o diretório de destino se não existir
+    destino.parent.mkdir(parents=True, exist_ok=True)
+
+    shutil.move(str(origem), str(destino))
+    print(f"Arquivo movido de {origem} para {destino}")
+
+
+# ANO = 2025
+# Ke = 0.42
+
+
+# de = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\Nasdaq\\"
+# para = f"C:\\Users\\edine\\OneDrive\\Documentos\\stocks\\b3\\NasdaqClean\\"
+
+# for i in tickers:
+#     mover_arquivo(f"{de}{i}.csv", f"{para}{i}.csv")
 
 # obtem_balanco(tickers)
 
 # preencher_dividendos(tickers)
-valuation(tickers)
-# get_setor(tickers)
-list = graficos(False)
-print(list)
+# valuation(tickers)
+
+# obter setor para empresas brasileiras e
+# df = get_setor(tickers, False)
+
+# obter setor para empresas americanas
+df = get_setor(tickers, True)
+
+# salvar em setores.csv
+df.to_csv(f'setores_{Folder.lower()}.csv', sep=';',
+          index=False, encoding='utf-8-sig')
+
+# list = graficos(True)
+# print(list)
 
 # list.append("^GSPC")
 

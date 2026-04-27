@@ -1,0 +1,455 @@
+﻿Ticket;Setor de Atuação;Subsetor de Atuação;Segmento de Atuação
+NVDA;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+AAPL;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+MSFT;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+AMZN;Consumo Cíclico;Comércio;Produtos Diversos
+GOOGL;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+GOOG;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+AVGO;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+META;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+TSLA;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+BRK-B;Financeiro e Outros;Holdings Diversificadas;Holdings Diversificadas
+LLY;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+WMT;Consumo não Cíclico;Diversos;Produtos Diversos
+JPM;Financeiro e Outros;Intermediários Financeiros;Bancos
+V;Bens Industriais;Serviços;Serviços Diversos
+ORCL;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+MA;Bens Industriais;Serviços;Serviços Diversos
+XOM;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+JNJ;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+PLTR;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+BAC;Financeiro e Outros;Intermediários Financeiros;Bancos
+ABBV;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+COST;Consumo não Cíclico;Diversos;Produtos Diversos
+NFLX;Consumo Cíclico;Utilidades Domésticas;Eletrônicos
+MU;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+HD;Bens Industriais;Construção e Engenharia;Produtos para Construção
+GE;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+AMD;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+PG;Consumo não Cíclico;Produtos de Uso Pessoal e de Limpeza;Produtos de Uso Pessoal
+CVX;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+UNH;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+CSCO;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+WFC;Financeiro e Outros;Intermediários Financeiros;Bancos
+MS;Financeiro e Outros;Intermediários Financeiros;Bancos
+KO;Consumo não Cíclico;Bebidas;Cervejas e Refrigerantes
+GS;Financeiro e Outros;Intermediários Financeiros;Bancos
+CAT;Bens Industriais;Construção e Engenharia;Produtos para Construção
+IBM;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+MRK;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+AXP;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+LRCX;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+RTX;Bens Industriais;Material de Transporte;Material Aeronáutico e de Defesa
+CRM;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+PM;Consumo não Cíclico;Agropecuária;Agricultura
+TMO;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+AMAT;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+TMUS;Comunicações;Telecomunicações;Telecomunicações
+ABT;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+C;Financeiro e Outros;Intermediários Financeiros;Bancos
+MCD;Consumo Cíclico;Hoteis e Restaurantes;Restaurante e Similares
+APP;Bens Industriais;Material de Transporte;Material Rodoviário
+ISRG;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+LIN;Materiais Básicos;Químicos;Químicos Diversos
+INTC;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+DIS;Consumo Cíclico;Viagens e Lazer;Viagens e Turismo
+QCOM;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+PEP;Consumo não Cíclico;Bebidas;Cervejas e Refrigerantes
+SCHW;Financeiro e Outros;Intermediários Financeiros;Bancos
+AMGN;Tecnologia da Informação;Biotecnologia;Biotecnologia
+INTU;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+BA;Bens Industriais;Material de Transporte;Material Aeronáutico e de Defesa
+UBER;Bens Industriais;Serviços;Serviços Diversos
+KLAC;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+BKNG;Bens Industriais;Transporte;Logística
+TJX;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+APH;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+T;Comunicações;Telecomunicações;Telecomunicações
+TXN;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+VZ;Comunicações;Telecomunicações;Telecomunicações
+ACN;Bens Industriais;Serviços;Serviços Diversos
+BLK;Financeiro e Outros;Intermediários Financeiros;Bancos
+DHR;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+ANET;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+SPGI;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+NEE;Utilidade Pública;Energia Elétrica;Energia Elétrica
+COF;Financeiro e Outros;Intermediários Financeiros;Bancos
+NOW;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+GILD;Tecnologia da Informação;Biotecnologia;Biotecnologia
+BSX;Saúde;Equipamentos;Equipamentos
+PFE;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+ADI;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+ADBE;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+SYK;Saúde;Equipamentos;Equipamentos
+LOW;Bens Industriais;Construção e Engenharia;Produtos para Construção
+PANW;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+UNP;Bens Industriais;Transporte;Transporte Ferroviário
+DE;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+MDT;Tecnologia da Informação;Biotecnologia;Biotecnologia
+HON;Bens Industriais;Material de Transporte;Material Aeronáutico e de Defesa
+ETN;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+PGR;Financeiro e Outros;Previdência e Seguros;Seguradoras
+VRTX;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+CRWD;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+CB;Financeiro e Outros;Previdência e Seguros;Seguradoras
+BX;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+KKR;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+LMT;Bens Industriais;Máquinas e Equipamentos;Armas e Munições
+NEM;Materiais Básicos;Mineração;Minerais Metálicos
+COP;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+PH;Materiais Básicos;Siderurgia e Metalurgia;Siderurgia
+BMY;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+HCA;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+HOOD;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+CEG;Bens Industriais;Comércio;Material de Transporte
+ADP;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+CVS;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+MCK;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+CMCSA;Comunicações;Mídia;Produção e Difusão de Filmes e Programas
+SNPS;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+DASH;Bens Industriais;Serviços;Serviços Diversos
+SBUX;Consumo Cíclico;Hoteis e Restaurantes;Restaurante e Similares
+CME;Financeiro e Outros;Intermediários Financeiros;Bancos
+GD;Bens Industriais;Transporte;Transporte Hidroviário
+MCO;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+SO;Utilidade Pública;Energia Elétrica;Energia Elétrica
+NKE;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+ICE;Financeiro e Outros;Intermediários Financeiros;Bancos
+MO;Consumo não Cíclico;Agropecuária;Agricultura
+DUK;Utilidade Pública;Energia Elétrica;Energia Elétrica
+MMC;Financeiro e Outros;Previdência e Seguros;Seguradoras
+UPS;Bens Industriais;Transporte;Logística
+CDNS;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+WM;Utilidade Pública;Água e Saneamento;Água e Saneamento
+MMM;Saúde;Equipamentos;Equipamentos
+MAR;Consumo Cíclico;Hoteis e Restaurantes;Hotelaria
+HWM;Materiais Básicos;Siderurgia e Metalurgia;Siderurgia
+USB;Financeiro e Outros;Intermediários Financeiros;Bancos
+NOC;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+PNC;Financeiro e Outros;Intermediários Financeiros;Bancos
+APO;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+TT;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+BK;Financeiro e Outros;Intermediários Financeiros;Bancos
+REGN;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+ABNB;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+SHW;Bens Industriais;Construção e Engenharia;Produtos para Construção
+CRH;Bens Industriais;Construção e Engenharia;Produtos para Construção
+RCL;Bens Industriais;Transporte;Transporte Hidroviário
+ELV;Bens Industriais;Construção e Engenharia;Construção Pesada
+EMR;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+DELL;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+FCX;Materiais Básicos;Mineração;Minerais Metálicos
+TDG;Bens Industriais;Máquinas e Equipamentos;Armas e Munições
+ORLY;Consumo não Cíclico;Diversos;Produtos Diversos
+GM;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+ECL;Consumo não Cíclico;Produtos de Uso Pessoal e de Limpeza;Produtos de Uso Pessoal
+CTAS;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+GLW;Comunicações;Telecomunicações;Telecomunicações
+AON;Financeiro e Outros;Previdência e Seguros;Seguradoras
+CMI;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+CI;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+WMB;Utilidade Pública;Gás;Gás
+FDX;Bens Industriais;Transporte;Transporte Aéreo
+ITW;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+WBD;Comunicações;Mídia;Produção e Difusão de Filmes e Programas
+JCI;Consumo não Cíclico;Diversos;Produtos Diversos
+HLT;Consumo Cíclico;Hoteis e Restaurantes;Hotelaria
+WDC;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+TEL;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+STX;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+MDLZ;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+AJG;Financeiro e Outros;Previdência e Seguros;Seguradoras
+CSX;Bens Industriais;Transporte;Transporte Ferroviário
+COIN;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+PWR;Bens Industriais;Construção e Engenharia;Construção Pesada
+RSG;Utilidade Pública;Água e Saneamento;Água e Saneamento
+TFC;Financeiro e Outros;Intermediários Financeiros;Bancos
+NSC;Bens Industriais;Transporte;Transporte Ferroviário
+CVNA;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+SLB;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Equipamentos e Serviços
+TRV;Financeiro e Outros;Previdência e Seguros;Seguradoras
+MSI;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+CL;Consumo não Cíclico;Produtos de Uso Pessoal e de Limpeza;Produtos de Uso Pessoal
+ADSK;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+PCAR;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+AEP;Utilidade Pública;Energia Elétrica;Energia Elétrica
+ROST;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+KMI;Utilidade Pública;Gás;Gás
+NXPI;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+FTNT;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+LHX;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+AFL;Financeiro e Outros;Previdência e Seguros;Seguradoras
+BDX;Saúde;Equipamentos;Equipamentos
+APD;Materiais Básicos;Químicos;Químicos Diversos
+NDAQ;Financeiro e Outros;Intermediários Financeiros;Bancos
+IDXX;Tecnologia da Informação;Biotecnologia;Biotecnologia
+VLO;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+SRE;Utilidade Pública;Gás;Gás
+URI;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+EOG;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+ZTS;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+WDAY;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+PSX;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+AZO;Consumo não Cíclico;Diversos;Produtos Diversos
+PYPL;Bens Industriais;Serviços;Serviços Diversos
+ALL;Financeiro e Outros;Previdência e Seguros;Seguradoras
+F;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+VST;Utilidade Pública;Energia Elétrica;Energia Elétrica
+MET;Financeiro e Outros;Previdência e Seguros;Seguradoras
+MPC;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+CMG;Consumo Cíclico;Hoteis e Restaurantes;Restaurante e Similares
+EA;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+CBRE;Financeiro e Outros;Exploração de Imóveis;Exploração de Imóveis
+DDOG;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+CAH;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+AXON;Bens Industriais;Material de Transporte;Material Aeronáutico e de Defesa
+AME;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+EW;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+D;Utilidade Pública;Energia Elétrica;Energia Elétrica
+BKR;Materiais Básicos;Siderurgia e Metalurgia;Siderurgia
+GWW;Consumo não Cíclico;Diversos;Produtos Diversos
+TTWO;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+DAL;Bens Industriais;Transporte;Transporte Aéreo
+TGT;Consumo não Cíclico;Diversos;Produtos Diversos
+ROP;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+FAST;Bens Industriais;Construção e Engenharia;Produtos para Construção
+AMP;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+ROK;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+CTVA;Consumo não Cíclico;Agropecuária;Agricultura
+MPWR;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+CARR;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+OKE;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+MSCI;Bens Industriais;Serviços;Serviços Diversos
+EXC;Utilidade Pública;Energia Elétrica;Energia Elétrica
+XYZ;Bens Industriais;Material de Transporte;Material Rodoviário
+XEL;Utilidade Pública;Energia Elétrica;Energia Elétrica
+AIG;Financeiro e Outros;Previdência e Seguros;Seguradoras
+YUM;Consumo Cíclico;Hoteis e Restaurantes;Restaurante e Similares
+CCL;Bens Industriais;Transporte;Transporte Hidroviário
+LVS;Consumo Cíclico;Hoteis e Restaurantes;Hotelaria
+A;Tecnologia da Informação;Biotecnologia;Biotecnologia
+IQV;Tecnologia da Informação;Biotecnologia;Biotecnologia
+ETR;Utilidade Pública;Energia Elétrica;Energia Elétrica
+PRU;Financeiro e Outros;Previdência e Seguros;Seguradoras
+DHI;Financeiro e Outros;Exploração de Imóveis;Exploração de Imóveis
+EBAY;Bens Industriais;Serviços;Serviços Diversos
+CTSH;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+OXY;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+GRMN;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+FANG;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+PAYX;Consumo não Cíclico;Diversos;Produtos Diversos
+MCHP;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+PEG;Utilidade Pública;Energia Elétrica;Energia Elétrica
+VMC;Materiais Básicos;Mineração;Minerais Não Metálicos
+HIG;Financeiro e Outros;Previdência e Seguros;Seguradoras
+NUE;Materiais Básicos;Siderurgia e Metalurgia;Siderurgia
+ARES;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+TRGP;Utilidade Pública;Gás;Gás
+UAL;Bens Industriais;Transporte;Transporte Aéreo
+KR;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+EL;Consumo não Cíclico;Produtos de Uso Pessoal e de Limpeza;Produtos de Uso Pessoal
+FICO;Bens Industriais;Serviços;Serviços Diversos
+MLM;Materiais Básicos;Mineração;Minerais Não Metálicos
+WAB;Bens Industriais;Transporte;Transporte Ferroviário
+CPRT;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+STT;Financeiro e Outros;Intermediários Financeiros;Bancos
+KDP;Consumo não Cíclico;Bebidas;Cervejas e Refrigerantes
+HSY;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+KEYS;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+FIX;Bens Industriais;Construção e Engenharia;Construção Pesada
+EXPE;Bens Industriais;Transporte;Logística
+RMD;Saúde;Equipamentos;Equipamentos
+ED;Utilidade Pública;Energia Elétrica;Energia Elétrica
+SYY;Consumo não Cíclico;Comércio e Distribuição;Alimentos
+ODFL;Bens Industriais;Transporte;Logística
+FIS;Bens Industriais;Serviços;Serviços Diversos
+OTIS;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+TER;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+PCG;Utilidade Pública;Energia Elétrica;Energia Elétrica
+ACGL;Financeiro e Outros;Previdência e Seguros;Seguradoras
+WEC;Utilidade Pública;Energia Elétrica;Energia Elétrica
+XYL;Utilidade Pública;Água e Saneamento;Água e Saneamento
+LYV;Consumo Cíclico;Viagens e Lazer;Viagens e Turismo
+EQT;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+HUM;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+RJF;Financeiro e Outros;Intermediários Financeiros;Bancos
+IR;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+FITB;Financeiro e Outros;Intermediários Financeiros;Bancos
+KMB;Materiais Básicos;Embalagens;Embalagens
+MTB;Financeiro e Outros;Intermediários Financeiros;Bancos
+KVUE;Bens Industriais;Construção e Engenharia;Engenharia Consultiva
+IBKR;Financeiro e Outros;Intermediários Financeiros;Bancos
+DG;Consumo não Cíclico;Diversos;Produtos Diversos
+SYF;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+VRSK;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+HPE;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+MTD;Tecnologia da Informação;Biotecnologia;Biotecnologia
+EME;Bens Industriais;Construção e Engenharia;Construção Pesada
+ULTA;Consumo não Cíclico;Diversos;Produtos Diversos
+ROL;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+NRG;Utilidade Pública;Energia Elétrica;Energia Elétrica
+HBAN;Financeiro e Outros;Intermediários Financeiros;Bancos
+ADM;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+DOV;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+DXCM;Saúde;Equipamentos;Equipamentos
+KHC;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+TPR;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+CSGP;Bens Industriais;Serviços;Serviços Diversos
+CHTR;Comunicações;Mídia;Produção e Difusão de Filmes e Programas
+NTRS;Financeiro e Outros;Intermediários Financeiros;Bancos
+BIIB;Tecnologia da Informação;Biotecnologia;Biotecnologia
+BRO;Financeiro e Outros;Previdência e Seguros;Seguradoras
+CBOE;Financeiro e Outros;Intermediários Financeiros;Bancos
+AEE;Utilidade Pública;Energia Elétrica;Energia Elétrica
+ATO;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+DTE;Utilidade Pública;Energia Elétrica;Energia Elétrica
+TSCO;Bens Industriais;Construção e Engenharia;Produtos para Construção
+CFG;Financeiro e Outros;Intermediários Financeiros;Bancos
+EFX;Financeiro e Outros;Serviços Financeiros Diversos;Serviços Financeiros Diversos
+DLTR;Consumo não Cíclico;Diversos;Produtos Diversos
+WRB;Financeiro e Outros;Previdência e Seguros;Seguradoras
+LEN;Financeiro e Outros;Exploração de Imóveis;Exploração de Imóveis
+FSLR;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+BR;Bens Industriais;Serviços;Serviços Diversos
+HAL;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Equipamentos e Serviços
+FE;Utilidade Pública;Energia Elétrica;Energia Elétrica
+CINF;Financeiro e Outros;Previdência e Seguros;Seguradoras
+PPL;Utilidade Pública;Energia Elétrica;Energia Elétrica
+STE;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+LDOS;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+TDY;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+LULU;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+AWK;Utilidade Pública;Água e Saneamento;Água e Saneamento
+RF;Financeiro e Outros;Intermediários Financeiros;Bancos
+HUBB;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+STZ;Consumo não Cíclico;Bebidas;Cervejas e Refrigerantes
+STLD;Materiais Básicos;Siderurgia e Metalurgia;Siderurgia
+ES;Utilidade Pública;Energia Elétrica;Energia Elétrica
+CNP;Utilidade Pública;Energia Elétrica;Energia Elétrica
+ON;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+OMC;Comunicações;Mídia;Publicidade
+JBL;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+WAT;Tecnologia da Informação;Biotecnologia;Biotecnologia
+PPG;Materiais Básicos;Químicos;Químicos Diversos
+TROW;Financeiro e Outros;Intermediários Financeiros;Bancos
+KEY;Financeiro e Outros;Intermediários Financeiros;Bancos
+GIS;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+WSM;Consumo Cíclico;Utilidades Domésticas;Móveis
+PHM;Financeiro e Outros;Exploração de Imóveis;Exploração de Imóveis
+DRI;Consumo Cíclico;Hoteis e Restaurantes;Restaurante e Similares
+EIX;Utilidade Pública;Energia Elétrica;Energia Elétrica
+VRSN;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+CNC;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+LUV;Bens Industriais;Transporte;Transporte Aéreo
+RL;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+L;Financeiro e Outros;Previdência e Seguros;Seguradoras
+INCY;Tecnologia da Informação;Biotecnologia;Biotecnologia
+DVN;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+LH;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+CMS;Utilidade Pública;Energia Elétrica;Energia Elétrica
+IP;Materiais Básicos;Madeira e Papel;Papel e Celulose
+PODD;Saúde;Equipamentos;Equipamentos
+EXPD;Bens Industriais;Serviços;Serviços Diversos
+PTC;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+SW;Bens Industriais;Comércio;Material de Transporte
+NTAP;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+CHD;Consumo não Cíclico;Produtos de Uso Pessoal e de Limpeza;Produtos de Uso Pessoal
+WST;Materiais Básicos;Químicos;Químicos Diversos
+PFG;Financeiro e Outros;Previdência e Seguros;Seguradoras
+DGX;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+TSN;Consumo não Cíclico;Alimentos Processados;Carnes e Derivados
+TPL;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+NVR;Financeiro e Outros;Exploração de Imóveis;Exploração de Imóveis
+NI;Utilidade Pública;Energia Elétrica;Energia Elétrica
+JBHT;Bens Industriais;Transporte;Logística
+AMCR;Materiais Básicos;Materiais Diversos;Materiais Diversos
+CHRW;Bens Industriais;Serviços;Serviços Diversos
+TYL;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+HPQ;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+TRMB;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+ALB;Materiais Básicos;Químicos;Químicos Diversos
+CTRA;Materiais Básicos;Mineração;Minerais Não Metálicos
+PKG;Materiais Básicos;Embalagens;Embalagens
+SNA;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+ZBH;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+GPN;Bens Industriais;Serviços;Serviços Diversos
+DD;Materiais Básicos;Químicos;Químicos Diversos
+SMCI;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+LII;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+BG;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+APTV;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+IT;Consumo não Cíclico;Diversos;Produtos Diversos
+DOW;Materiais Básicos;Químicos;Químicos Diversos
+MKC;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+IFF;Materiais Básicos;Químicos;Químicos Diversos
+FTV;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+GPC;Consumo Cíclico;Automóveis e Motocicletas;Automóveis e Motocicletas
+CDW;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+HOLX;Saúde;Equipamentos;Equipamentos
+EVRG;Utilidade Pública;Energia Elétrica;Energia Elétrica
+LNT;Utilidade Pública;Energia Elétrica;Energia Elétrica
+PNR;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+COO;Saúde;Equipamentos;Equipamentos
+J;Bens Industriais;Material de Transporte;Material Aeronáutico e de Defesa
+GEN;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+GDDY;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+TXT;Bens Industriais;Material de Transporte;Material Aeronáutico e de Defesa
+FOX;Comunicações;Mídia;Mídia
+FFIV;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+FOXA;Comunicações;Mídia;Mídia
+DECK;Consumo Cíclico;Comércio;Tecidos. Vestuário e Calçados
+ERIE;Financeiro e Outros;Previdência e Seguros;Seguradoras
+SOLV;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+BBY;Consumo Cíclico;Utilidades Domésticas;Eletrônicos
+VTRS;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+LYB;Materiais Básicos;Químicos;Químicos Diversos
+HII;Bens Industriais;Transporte;Transporte Hidroviário
+NDSN;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+MRNA;Tecnologia da Informação;Biotecnologia;Biotecnologia
+AVY;Materiais Básicos;Embalagens;Embalagens
+DPZ;Consumo não Cíclico;Comércio e Distribuição;Alimentos
+ALLE;Consumo não Cíclico;Diversos;Produtos Diversos
+IEX;Utilidade Pública;Água e Saneamento;Água e Saneamento
+JKHY;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+MAS;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+BEN;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+UHS;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+AKAM;Bens Industriais;Serviços;Serviços Diversos
+ZBRA;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+CLX;Materiais Básicos;Químicos;Químicos Diversos
+HRL;Consumo não Cíclico;Alimentos Processados;Carnes e Derivados
+IVZ;Financeiro e Outros;Serviços Financeiros Diversos;Gestão de Recursos e Investimentos
+HAS;Consumo Cíclico;Viagens e Lazer;Brinquedos e Jogos
+SWK;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+WYNN;Consumo Cíclico;Hoteis e Restaurantes;Hotelaria
+EPAM;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+ALGN;Saúde;Medicamentos e Outros Produtos;Medicamentos e Outros Produtos
+CF;Materiais Básicos;Químicos;Fertilizantes e Defensivos
+AIZ;Financeiro e Outros;Previdência e Seguros;Seguradoras
+BLDR;Bens Industriais;Construção e Engenharia;Produtos para Construção
+GL;Financeiro e Outros;Previdência e Seguros;Seguradoras
+NCLH;Bens Industriais;Transporte;Transporte Hidroviário
+FDS;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+CRL;Tecnologia da Informação;Biotecnologia;Biotecnologia
+PNW;Utilidade Pública;Energia Elétrica;Energia Elétrica
+BAX;Saúde;Equipamentos;Equipamentos
+AES;Utilidade Pública;Energia Elétrica;Energia Elétrica
+SJM;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+TECH;Tecnologia da Informação;Biotecnologia;Biotecnologia
+NWSA;Consumo Cíclico;Mídia;Jornais. Livros e Revistas
+MGM;Consumo Cíclico;Hoteis e Restaurantes;Hotelaria
+AOS;Consumo Cíclico;Utilidades Domésticas;Eletrônicos
+HSIC;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+MOH;Saúde;Serv.Méd.Hospit..Análises e Diagnósticos;Serv.Méd.Hospit..Análises e Diagnósticos
+TAP;Consumo não Cíclico;Bebidas;Cervejas e Refrigerantes
+POOL;Bens Industriais;Máquinas e Equipamentos;Máq. e Equip. Industriais
+SWKS;Tecnologia da Informação;Computadores e Equipamentos;Computadores e Equipamentos
+PAYC;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+APA;Petróleo. Gás e Biocombustíveis;Petróleo. Gás e Biocombustíveis;Exploração. Refino e Distribuição
+GNRC;Materiais Básicos;Siderurgia e Metalurgia;Siderurgia
+DVA;Tecnologia da Informação;Biotecnologia;Biotecnologia
+CPB;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+CAG;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+MTCH;Tecnologia da Informação;Programas e Serviços;Programas e Serviços
+LW;Consumo não Cíclico;Alimentos Processados;Alimentos Diversos
+NWS;Consumo Cíclico;Mídia;Jornais. Livros e Revistas

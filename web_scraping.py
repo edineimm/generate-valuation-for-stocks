@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
 
+
 def elemento_existe(driver, xpath, timeout=5):
     try:
         WebDriverWait(driver, timeout).until(
@@ -18,25 +19,26 @@ def elemento_existe(driver, xpath, timeout=5):
     except TimeoutException:
         return False
 
+
 def get_html_statusinvest(ticker, max_tentativas=3):
 
     driver = webdriver.Chrome()
     wait = WebDriverWait(driver, 20)
 
     # driver.get(f"https://statusinvest.com.br/acoes/{ticker}")
-    driver.get(f"https://statusinvest.com.br/acoes/eua/{ticker}")
+    driver.get(f"https://statusinvest.com.br/acoes/{ticker}")
     print("Página StatusInvest carregada.")
 
     for tentativa in range(1, max_tentativas + 1):
         try:
-            print(f"Tentativa {tentativa} de clicar no HISTÓRICO")          
-                
+            print(f"Tentativa {tentativa} de clicar no HISTÓRICO")
+
             if elemento_existe(driver, "//button[@title='Histórico do ativo']"):
                 print("Fluxo com histórico")
             else:
                 print("Fluxo alternativo")
                 driver.get(f"https://statusinvest.com.br/reits/{ticker}")
-                
+
                 if elemento_existe(driver, "//button[@title='Histórico do ativo']"):
                     print("Fluxo alternativo com histórico")
                 else:
@@ -45,10 +47,12 @@ def get_html_statusinvest(ticker, max_tentativas=3):
                     return None
 
             btn = wait.until(
-                EC.element_to_be_clickable((By.XPATH, "//button[@title='Histórico do ativo']"))
+                EC.element_to_be_clickable(
+                    (By.XPATH, "//button[@title='Histórico do ativo']"))
             )
 
-            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", btn)
+            driver.execute_script(
+                "arguments[0].scrollIntoView({block: 'center'});", btn)
             time.sleep(0.5)
 
             # clique via JS é mais confiável em SPAs
@@ -56,7 +60,8 @@ def get_html_statusinvest(ticker, max_tentativas=3):
 
             # aguarda a tabela aparecer
             wait.until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.table-history"))
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.table-history"))
             )
 
             print("Tabela histórica carregada.")
@@ -85,7 +90,8 @@ def extract_table_history(html):
 
     for t_index, table_div in enumerate(tables, start=1):
         # capturar cabeçalhos (anos)
-        headers = [th.get_text(strip=True) for th in table_div.select("div.tr div.th")]
+        headers = [th.get_text(strip=True)
+                   for th in table_div.select("div.tr div.th")]
         if not headers:
             continue
 
@@ -108,10 +114,10 @@ def extract_table_history(html):
         return pd.concat(dfs)
     else:
         return pd.DataFrame()
-    
+
 
 def obtain_financial_indicators(ticket):
-    
+
     html = get_html_statusinvest(ticket)
     if html is None:
         return None
@@ -148,12 +154,14 @@ def obtain_financial_indicators(ticket):
 
     # remover coluna "ATUAL" se existir
     df.drop(columns=["ATUAL"], inplace=True, errors='ignore')
-    
+
     return df
 
 # ======================================================
 # 1. Obter HTML da página
 # ======================================================
+
+
 def get_html(url):
     headers = {
         "User-Agent": "Mozilla/5.0"
@@ -224,23 +232,19 @@ def get_dividends(df_fundamentos, url):
 
     return df_fundamentos
 
-from bs4 import BeautifulSoup
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 def get_setor_html_statusinvest(ticker, max_tentativas=3):
     driver = webdriver.Chrome()
     wait = WebDriverWait(driver, 20)
 
     try:
+        # https://statusinvest.com.br/acoes/eua/nvda
         driver.get(f"https://statusinvest.com.br/acoes/{ticker}")
 
         # Aguarda o carregamento do bloco de informações de setor
         wait.until(
             EC.presence_of_element_located(
+                # (By.XPATH, "//span[contains(text(), 'SETOR DE ATUAÇÃO')]")
                 (By.XPATH, "//span[contains(text(), 'Setor de Atuação')]")
             )
         )
@@ -252,6 +256,7 @@ def get_setor_html_statusinvest(ticker, max_tentativas=3):
 
     finally:
         driver.quit()
+
 
 def setor(ticket):
     html = get_setor_html_statusinvest(ticket)
@@ -275,5 +280,75 @@ def setor(ticket):
             data[label] = value
 
     df = pd.DataFrame([data])
-    df = df[["Ticket", "Setor de Atuação", "Subsetor de Atuação", "Segmento de Atuação"]]
+    df = df[["Ticket", "Setor de Atuação",
+             "Subsetor de Atuação", "Segmento de Atuação"]]
+    return df
+
+
+def get_setor_html_statusinvest_eua(ticker, eua=True):
+    driver = webdriver.Chrome()
+    wait = WebDriverWait(driver, 20)
+
+    # Ajusta a URL: ações BR usam /acoes/, americanas usam /acoes/eua/
+    path = "acoes/eua" if eua else "acoes"
+    url = f"https://statusinvest.com.br/{path}/{ticker}"
+
+    try:
+        driver.get(url)
+
+        # XPath flexível para capturar o texto independente de ser maiúsculo ou minúsculo
+        xpath_espera = "//span[contains(translate(text(), 'setor', 'SETOR'), 'SETOR DE ATUAÇÃO')]"
+
+        wait.until(EC.presence_of_element_located((By.XPATH, xpath_espera)))
+
+        print(f"Elemento 'Setor de Atuação' para {ticker} carregado.")
+        html = driver.page_source
+        return html
+    except Exception as e:
+        print(f"Erro ao carregar {ticker}: {e}")
+        return None
+    finally:
+        driver.quit()
+
+
+def setor_eua(ticket):
+    # Chamamos com eua=True por padrão, conforme seu exemplo anterior
+    html = get_setor_html_statusinvest_eua(ticket, eua=True)
+
+    if not html:
+        return pd.DataFrame()
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    data = {
+        "Ticket": ticket.upper(),
+        "Setor de Atuação": None,
+        "Subsetor de Atuação": None,
+        "Segmento de Atuação": None
+    }
+
+    # Mapeamento para converter o texto bruto do HTML para as chaves do dicionário
+    mapeamento = {
+        "SETOR DE ATUAÇÃO": "Setor de Atuação",
+        "SUBSETOR DE ATUAÇÃO": "Subsetor de Atuação",
+        "SEGMENTO DE ATUAÇÃO": "Segmento de Atuação"
+    }
+
+    for info in soup.select("div.info"):
+        label_tag = info.select_one("span.sub-value")
+        value_tag = info.select_one("strong.value")
+
+        if label_tag and value_tag:
+            # Pegamos o label original (ex: "SETOR DE ATUAÇÃO")
+            label_raw = label_tag.get_text(strip=True).upper()
+            value = value_tag.get_text(strip=True)
+
+            # Se o label existir no nosso mapeamento, salvamos no dicionário
+            if label_raw in mapeamento:
+                data[mapeamento[label_raw]] = value
+
+    df = pd.DataFrame([data])
+    # Garante a ordem das colunas e a existência delas
+    df = df[["Ticket", "Setor de Atuação",
+             "Subsetor de Atuação", "Segmento de Atuação"]]
     return df
